@@ -111,14 +111,14 @@ gibbs_mix_con = function(G,
     }
     
     Sigma.init = p.Sigma
-    cent.init  = p.Cent
-    cat('Sampling random center and scale (sigma) as starting conditions \n')
+    Cent.init  = p.Cent
+    cat('Sampled random center and scale (sigma) as starting conditions \n')
     cat('\n')
+  }else{
+    Sigma.init = sigma.init
+    Cent.init  = cent.init
   }
   
-  
-  Sigma.init = sigma.init
-  Cent.init  = cent.init
   pos_ref    = 1:k.init
   
   ### current values
