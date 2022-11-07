@@ -55,3 +55,12 @@ sim_zoo = gibbs_mix_con(G=25000,
                         Lambda = Lambda,
                         gam = gam)
 
+psm = comp.psm(sim_zoo$C)
+Bin = minbinder(psm)
+VI  = minVI(psm)
+
+table(Bin$cl)
+table(VI$cl)
+
+arandi(Bin$cl,groundTruth)
+arandi(VI$cl,groundTruth) 
