@@ -2,7 +2,7 @@ library(MBCbook)
 library(AntMAN)
 library(mcclust.ext)
 
-source('../main/gibbs_sampler.R', echo=TRUE)
+source('main/gibbs_sampler.R', echo=TRUE)
 
 #=========================================================================================
 # Loading data
@@ -38,7 +38,8 @@ data.clean=as.data.frame(dati.m[,-to_omit])
 # Gibbs sampler
 #=========================================================================================
 
-gamma = AntMAN::AM_find_gamma_Pois(n=nrow(dati.omit),Lambda = 3,Kstar = 3) #gamma=0.1514657
+#gamma = AntMAN::AM_find_gamma_Pois(n=nrow(data.clean),Lambda = 3,Kstar = 3) 
+gamma = 0.1514657
 u     = rep(3,ncol(data.clean))
 v     = rep(0.5,ncol(data.clean))
 
@@ -56,4 +57,4 @@ psm = comp.psm(gibbs$C[burnin:end,])
 
 pred   = minVI(psm)$cl
 pred_2 = minbinder(psm)$cl
-
+save.image('usps358_sim.RData')
