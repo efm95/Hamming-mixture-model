@@ -1,8 +1,8 @@
 require(Rcpp)
 require(extraDistr)
 
-Rcpp::sourceCpp('../utility/gibbs_utility.cpp')
-Rcpp::sourceCpp('../utility/hyperg.cpp')
+Rcpp::sourceCpp('main/gibbs_utility.cpp')
+Rcpp::sourceCpp('main/hyperg.cpp')
 
 gibbs_mix_con = function(G,
                          thin       = 1,
